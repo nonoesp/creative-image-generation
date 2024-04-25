@@ -90,3 +90,17 @@ TK.
   - [ ] montages
   - [ ] cleaning prompt names
   - [ ] file names
+
+### Python tricks
+
+Generating series of numbers.
+
+```sh
+» [x/10 for x in range(0,11)]
+# [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+
+» [x for x in range(0,110,10)]
+# [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100] 
+
+» 
+```
