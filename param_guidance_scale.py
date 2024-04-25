@@ -3,17 +3,21 @@ Classifier-free guidance (CFG) scale.
 '''
 
 from diffusers import StableDiffusionPipeline
-from utils import clean_prompt, ddyymm_hhmmss
+from utils import clean_text_prompt, ddyymm_hhmmss
 import torch
 import os
 import imageio
 
+from utils import remap
+y = remap([x*x/5 for x in range(0,30)], [1.0, 8.0])
+print(list(y))
+
 # Config
-STEPS = 15
-SEEDS = [0,123,100,1000,456,3049493]
+STEPS = 25
+SEEDS = [100234]#[123,100,1000,456,3049493]
 TORCH_DEVICE = 'mps'
-GUIDANCE_SCALES = [0,0.2,0.3,0.5,0.7,1,2,3,4,5,6,7,8]
-PROMPTS = ["An isolated concrete building in Tokyo, Japan."]
+GUIDANCE_SCALES = y#[0,0.2,0.3,0.5,0.7,1,2,3,4,5,6,7,8]
+PROMPTS = ["An isolated concrete building in Tokyo, Japan, in a scene landscape with nothing arround it, seen from the distance, high quality image"]
 OUTPUT_DIR = 'outputs'
 FPS = 20
 
@@ -27,7 +31,7 @@ print('› Loaded...')
 for seed in SEEDS:
     for prompt in PROMPTS:
         frames = []
-        cleaned_prompt = clean_prompt(prompt)
+        cleaned_prompt = clean_text_prompt(prompt)
         for guidance_scale in GUIDANCE_SCALES:
             generator = torch.Generator(TORCH_DEVICE).manual_seed(seed)
             image = pipe(

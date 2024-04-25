@@ -3,7 +3,7 @@ Same seed. Different prompt.
 '''
 
 from diffusers import StableDiffusionPipeline
-from utils import clean_prompt, ddyymm_hhmmss
+from utils import clean_text_prompt, ddyymm_hhmmss
 import torch
 
 # Config
@@ -44,5 +44,5 @@ for prompt in prompts:
     ).images[0]
 
     # Save the image
-    cleaned_prompt = clean_prompt(prompt)
+    cleaned_prompt = clean_text_prompt(prompt)
     image.save(f'outputs/{ddyymm_hhmmss()}_{cleaned_prompt}_steps{STEPS:03}.png')

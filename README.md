@@ -29,6 +29,7 @@ pip install scipy imageio matplotlib opencv-python
 - montages
 - etc
 - iteration through - latent space tensors, diffusion process, final diffusion steps, parameter interpolation (guidance scale, image control)
+- saving metadata
 
 ## HuggingFace Diffusers
 
@@ -70,10 +71,22 @@ TK.
 
 TK.
 
-## Fine-tuning Stable Diffusion with LoRA (Low-Raw Adaptation)
-
-TK.
-
 ### Dataset preparation
 
-TK.
+- [ ] How to create an image captioning dataset
+
+## Fine-tuning Stable Diffusion with LoRA (Low-Raw Adaptation)
+
+- [ ] How to train stable diffusion LoRAs
+
+### TODO
+
+- [ ] Scripts to explain each parameter
+    - [ ] param_width_height.py
+    - [ ] ...
+- [ ] Method to store generation parameters in YAML or JSON
+- [ ] A utility library
+  - [ ] animated gifs
+  - [ ] montages
+  - [ ] cleaning prompt names
+  - [ ] file names
