@@ -2,6 +2,13 @@ import os
 import re
 from datetime import datetime
 import imageio
+import yaml
+from config import Config
+
+def set_image_path():
+    clean_prompt = clean_text_prompt(Config.PROMPT)
+    Config.IMAGE_NAME = f'{ddyymm_hhmmss()}_{clean_prompt}_steps{Config.STEPS:03}.png'
+    Config.IMAGE_PATH = os.path.join(Config.OUTPUT_DIR, Config.IMAGE_NAME)
 
 def ddyymm_hhmmss():
     return datetime.today().strftime('%y%m%d_%H%M%S')
@@ -42,3 +49,13 @@ def remap(list, to_range):
 
     # Apply the function to each number in the list
     return [remap_number(n, [min_val, max_val], to_range) for n in list]
+
+def save_meta(pipe):
+    yml_path = f'{Config.IMAGE_PATH}.yml'
+    yml_pipe_path = f'{Config.IMAGE_PATH}.pipe.yml'
+
+    with open(yml_path, 'w') as file:
+        yaml.dump(Config.to_dict(), file, default_flow_style=False)
+    
+    with open(yml_pipe_path, 'w') as file:
+        yaml.dump(pipe.config, file, default_flow_style=False)
