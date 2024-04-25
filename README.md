@@ -51,7 +51,7 @@ There are a series of Python scripts with the `param` prefix on their name that 
 
 - steps
 - [seed](param_seed.py)
-- guidance scale
+- [guidance_scale](param_guidance_scale.py)
 - prompt
 - 
 
