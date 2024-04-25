@@ -47,8 +47,10 @@ It wraps existing models in so-called pipelines for inference and training.
 
 ## Diffusion parameters
 
+There are a series of Python scripts with the `param` prefix on their name that serve as a an example to understand each of the following concepts.
+
 - steps
-- seed
+- [seed](param_seed.py)
 - guidance scale
 - prompt
 - 
