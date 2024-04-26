@@ -1,3 +1,4 @@
+import torch
 import os
 import re
 from datetime import datetime
@@ -59,3 +60,10 @@ def save_meta(pipe):
     
     with open(yml_pipe_path, 'w') as file:
         yaml.dump(pipe.config, file, default_flow_style=False)
+
+def get_torch_device(fallback='cpu'):
+    if torch.backends.mps.is_available():
+        return 'mps'
+    elif torch.backends.cuda.is_available():
+        return 'cuda'
+    return 'cpu'

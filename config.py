@@ -1,7 +1,9 @@
+from utils import get_torch_device
+
 class Config:
     ### Global config
     AUTHOR = 'Nono Martínez Alonso'
-    TORCH_DEVICE = 'mps'
+    TORCH_DEVICE = get_torch_device(fallback='cpu')
     OUTPUT_DIR = 'outputs'
     
     ### Default parameters
