@@ -1,5 +1,11 @@
-from utils import get_torch_device
+import torch
 
+def get_torch_device(fallback='cpu'):
+    if torch.backends.mps.is_available():
+        return 'mps'
+    elif torch.backends.cuda.is_available():
+        return 'cuda'
+    return 'cpu'
 class Config:
     ### Global config
     AUTHOR = 'Nono Martínez Alonso'
@@ -24,4 +30,4 @@ class Config:
             'image_path': Config.IMAGE_PATH,
             'prompt': Config.PROMPT,
             'seed': Config.SEED,
-        }    
+        }
