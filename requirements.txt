@@ -1,0 +1,8 @@
+diffusers
+transformers
+torch
+accelerate
+scipy
+imageio
+matplotlib
+opencv-python
