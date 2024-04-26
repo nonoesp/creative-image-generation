@@ -6,9 +6,13 @@ import yaml
 from config import Config
 
 def set_image_path():
+    ensure_output_dir()
     clean_prompt = clean_text_prompt(Config.PROMPT)
     Config.IMAGE_NAME = f'{ddyymm_hhmmss()}_{clean_prompt}_steps{Config.STEPS:03}.png'
     Config.IMAGE_PATH = os.path.join(Config.OUTPUT_DIR, Config.IMAGE_NAME)
+
+def ensure_output_dir():
+    ensure_dir(Config.OUTPUT_DIR)
 
 def ddyymm_hhmmss():
     return datetime.today().strftime('%y%m%d_%H%M%S')

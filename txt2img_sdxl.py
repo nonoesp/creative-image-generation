@@ -3,9 +3,8 @@ Diffusion with a stable diffusion pipeline.
 '''
 
 from config import Config
-from utils import clean_text_prompt, ddyymm_hhmmss, save_meta, set_image_path
+from utils import save_meta, set_image_path, ensure_dir
 from diffusers import StableDiffusionXLPipeline
-import os
 import torch
 
 # Parameters
