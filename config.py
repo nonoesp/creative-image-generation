@@ -12,6 +12,9 @@ class Config:
     STEPS = 5
     PROMPT = "a scenic landscape"
     
+    ### Settings
+    FPS = 20
+
     ### Automatic variables
     IMAGE_NAME = 'image.png'
     IMAGE_PATH = 'image.png'
@@ -25,4 +28,5 @@ class Config:
             'image_path': Config.IMAGE_PATH,
             'prompt': Config.PROMPT,
             'seed': Config.SEED,
+            'fps': Config.FPS
         }
