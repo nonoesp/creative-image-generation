@@ -8,14 +8,17 @@ from diffusers import StableDiffusionXLPipeline
 import torch
 
 # Parameters
-Config.STEPS = 1
-Config.PROMPT = 'a scenic landscape at dusk'
+Config.SEED = 42
+Config.STEPS = 25
+Config.PROMPT = 'a scenic landscape at dusk with skyscrapers'
 
 # Get image path
 set_image_path()
 
 # Create a Stable Diffusion pipeline
-pipe = StableDiffusionXLPipeline.from_pretrained("stabilityai/stable-diffusion-xl-base-1.0")
+pipe = StableDiffusionXLPipeline.from_pretrained(
+    "stabilityai/stable-diffusion-xl-base-1.0", torch_dtype=torch.float16
+)
 pipe.to(Config.TORCH_DEVICE)
 
 # Save metadata

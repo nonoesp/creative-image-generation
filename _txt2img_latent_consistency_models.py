@@ -7,9 +7,10 @@ from config import Config
 
 # Settings
 FPS = 10
-GENERATION_STEPS = [50]
+GENERATION_STEPS = [15]
+GENERATION_STEPS = range(1,16)
 SEEDS = [100]
-PROMPTS = ["hyper realistic photo of a brutalist building in the jungle, 8k, 16:9, masterpiece"]
+PROMPTS = ["hyper realistic photo of a polished alumninum building in the jungle, 8k, 16:9, masterpiece"]
 
 # Load the Latent Consistency Models U-Net for fast generation.
 unet = UNet2DConditionModel.from_pretrained(
