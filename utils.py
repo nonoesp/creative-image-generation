@@ -34,7 +34,8 @@ def set_image_path():
     Config.IMAGE_NAME = f'{ddyymm_hhmmss()}_{clean_prompt}_steps{Config.STEPS:03}.png'
     save_dir = os.path.join(Config.OUTPUT_DIR, Config.IMAGE_NAME)
     if Config.ALGO_TYPE and Config.ALGO_NAME:
-      save_dir = os.path.join(Config.OUTPUT_DIR, f'{Config.ALGO_TYPE}_{Config.ALGO_NAME}')
+      subdir = f'{Config.ALGO_TYPE}_{Config.ALGO_NAME}'.replace(' ', '-')
+      save_dir = os.path.join(Config.OUTPUT_DIR, subdir)
     os.makedirs(save_dir, exist_ok=True)
     Config.IMAGE_PATH = os.path.join(save_dir, Config.IMAGE_NAME)
 
