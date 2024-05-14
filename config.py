@@ -1,24 +1,49 @@
-import torch
-import sys
+def get_config_property(prop_name):
+    return getattr(Config, prop_name, None)
 
 class Config:
     ### Global config
-    AUTHOR = 'Nono Martínez Alonso'
-    TORCH_DEVICE = 'cuda' if 'google.colab' in sys.modules else 'mps' if torch.backends.mps.is_available() else 'cpu'
-    OUTPUT_DIR = 'outputs'
-    
+    AUTHOR = None
+    TORCH_DEVICE = 'cuda' # 'cpu' if no GPU is available, 'mps' for Apple silicon
+    OUTPUT_DIR = '/content/drive/MyDrive/IAAC/GenAI/Outputs'
+    TIME_ZONE = -5 # Relative to UTC time
+    ALGO_TYPE = None
+    ALGO_NAME = None
+
+
     ### Default parameters
     SEED = 0
     STEPS = 5
     PROMPT = "a scenic landscape"
-    
-    ### Settings
-    FPS = 20
 
     ### Automatic variables
-    IMAGE_NAME = 'image.png'
-    IMAGE_PATH = 'image.png'
-    
+    IMAGE_NAME = None
+    IMAGE_PATH = None
+
+    ### GIF Settings
+    FPS = 6
+
+    ### Params image settings
+    TXT_IMG_WIDTH = 1024
+    TXT_IMG_HEIGHT = 768
+    TXT_IMG_MARGIN = 0
+    TXT_DARK_MODE = False
+    TXT_FONT_SIZE = 44
+    TXT_MAX_LINELENGTH = 48
+    TXT_FONT = "Fira Sans" # "Courier New"
+
+    def check():
+      settings_to_check = [
+          'AUTHOR',
+          'ALGO_TYPE',
+          'ALGO_NAME',
+      ]
+      for prop_name in settings_to_check:
+        prop = get_config_property(prop_name)
+        if prop is None:
+          raise Exception(f'Config.{prop_name} needs to be set.')
+      print('Config OK.')
+
     def to_dict():
         return {
             'output_dir': Config.OUTPUT_DIR,
