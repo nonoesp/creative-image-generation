@@ -36,9 +36,10 @@ class Config:
 
     def check():
       settings_to_check = [
-          'AUTHOR',
-          'ALGO_TYPE',
-          'ALGO_NAME',
+         'PROMPT'
+         'AUTHOR',
+         'ALGO_TYPE',
+         'ALGO_NAME',
       ]
       for prop_name in settings_to_check:
         prop = get_config_property(prop_name)
