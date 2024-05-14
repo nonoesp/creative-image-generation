@@ -36,7 +36,7 @@ class Config:
 
     def check():
       settings_to_check = [
-         'PROMPT'
+         'PROMPT',
          'AUTHOR',
          'ALGO_TYPE',
          'ALGO_NAME',
