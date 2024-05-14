@@ -53,7 +53,7 @@ def save_image(image):
     print(f'Saved image at {Config.IMAGE_PATH}.')
     return image
 
-def save_svg(params, display_image=True):
+def save_params_image(params, display_image=True):
   save_path = f'{Config.IMAGE_PATH[:-4]}.svg'
   # save_path = os.path.join(Config.get_save_dir(), svg_name)
 
