@@ -6,3 +6,5 @@ scipy
 imageio
 matplotlib
 opencv-python
+svgwrite
+peft
