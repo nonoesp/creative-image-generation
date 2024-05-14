@@ -10,7 +10,6 @@ class Config:
     ALGO_TYPE = None
     ALGO_NAME = None
 
-
     ### Default parameters
     SEED = 0
     STEPS = 5
@@ -28,6 +27,9 @@ class Config:
     TXT_IMG_HEIGHT = 768
     TXT_IMG_MARGIN = 0
     TXT_DARK_MODE = False
+    TXT_COLOR_LIGHT = 'black'
+    TXT_COLOR_DARK = 'white'
+    TXT_COLOR_MID = 'gray'
     TXT_FONT_SIZE = 44
     TXT_MAX_LINELENGTH = 48
     TXT_FONT = "Fira Sans" # "Courier New"

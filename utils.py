@@ -24,10 +24,10 @@ def clean_text_prompt(prompt, max_length=70):
 
 # Function to toggle colors based on dark_mode
 def get_text_color():
-    return "white" if Config.TXT_DARK_MODE else "black"
+    return Config.TXT_COLOR_DARK if Config.TXT_DARK_MODE else Config.TXT_COLOR_LIGHT
 
 def get_background_color():
-    return "black" if Config.TXT_DARK_MODE else "white"
+    return Config.TXT_COLOR_LIGHT if Config.TXT_DARK_MODE else Config.TXT_COLOR_DARK
 
 def set_image_path():
     clean_prompt = clean_text_prompt(Config.PROMPT)
@@ -63,6 +63,8 @@ def save_params_image(params, display_image=True):
   # Get text
   text_left, text_right = get_svg_text(params)
 
+  prompt_start_line = max(len(params.keys()), len(text_right)) + 1
+
   # Create drawing object
   dwg = svgwrite.Drawing(save_path, (Config.TXT_IMG_WIDTH, Config.TXT_IMG_HEIGHT), profile='tiny')
 
@@ -77,9 +79,12 @@ def save_params_image(params, display_image=True):
 
   # Draw left text
   y = Config.TXT_IMG_MARGIN + top_margin
+  line_index = 0
   for line in text_left:
-      dwg.add(dwg.text(line, insert=(Config.TXT_IMG_MARGIN, y), fill=text_color, font_family=font_family, font_size=font_size))
+      text_color_override = text_color if prompt_start_line > line_index else Config.TXT_COLOR_MID
+      dwg.add(dwg.text(line, insert=(Config.TXT_IMG_MARGIN, y), fill=text_color_override, font_family=font_family, font_size=font_size))
       y += Config.TXT_FONT_SIZE
+      line_index += 1
 
   # Draw right text using text-anchor 'end' for right alignment
   y = Config.TXT_IMG_MARGIN + top_margin
