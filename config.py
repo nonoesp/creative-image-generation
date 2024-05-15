@@ -18,6 +18,8 @@ class Config:
     ### Automatic variables
     IMAGE_NAME = None
     IMAGE_PATH = None
+    STEP_COUNT = None
+    STEP_CURRENT = None
 
     ### GIF Settings
     FPS = 6
