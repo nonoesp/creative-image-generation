@@ -33,7 +33,7 @@ def set_image_path():
     clean_prompt = clean_text_prompt(Config.PROMPT)
     Config.IMAGE_NAME = f'{ddyymm_hhmmss()}_{clean_prompt}_steps{Config.STEPS:03}.png'
     if Config.STEP_COUNT and Config.STEP_CURRENT:
-        Config.IMAGE_NAME = f'{Config.IMAGE_NAME[:-4]}_{Config.STEP_CURRENT}-of-{Config.STEP_COUNT}.png'
+        Config.IMAGE_NAME = f'{Config.IMAGE_NAME[:-4]}_{Config.STEP_CURRENT:03}-of-{Config.STEP_COUNT:03}.png'
     save_dir = os.path.join(Config.OUTPUT_DIR, Config.IMAGE_NAME)
     if Config.ALGO_TYPE and Config.ALGO_NAME:
       subdir = f'{Config.ALGO_TYPE}_{Config.ALGO_NAME}'.replace(' ', '-')
