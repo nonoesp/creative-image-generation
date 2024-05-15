@@ -5,7 +5,7 @@ import imageio
 import yaml
 from config import Config
 import svgwrite
-from IPython.display import SVG, display
+from IPython.display import SVG, display, Image as IPythonImage
 
 # Define utility functions
 
@@ -54,9 +54,13 @@ def save_image(image):
     print(f'Saved image at {Config.IMAGE_PATH}.')
     return image
 
+def save_gif(frames):
+  save_path = f'{Config.IMAGE_PATH[:-4]}_{Config.FPS}fps.gif'
+  imageio.mimsave(save_path, frames, fps=Config.FPS, loop=0)
+  return save_path
+
 def save_params_image(params, display_image=True):
   save_path = f'{Config.IMAGE_PATH[:-4]}.svg'
-  # save_path = os.path.join(Config.get_save_dir(), svg_name)
 
   top_margin = Config.TXT_FONT_SIZE
 
