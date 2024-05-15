@@ -33,7 +33,7 @@ class Config:
     TXT_COLOR_DARK = 'white'
     TXT_COLOR_MID = 'gray'
     TXT_FONT_SIZE = 44
-    TXT_MAX_LINELENGTH = 48
+    TXT_MAX_LINELENGTH = 46
     TXT_FONT = "Fira Sans" # "Courier New"
 
     def check():
