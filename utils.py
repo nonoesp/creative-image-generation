@@ -148,7 +148,7 @@ def get_svg_text(params):
     broken_prompt = break_text_for_svg(Config.PROMPT, Config.TXT_MAX_LINELENGTH)
 
     text_right = [
-        f'{Config.ALGO_NAME} ({Config.ALGO_TYPE})',
+        Config.ALGO_NAME,
         Config.AUTHOR,
         date
     ]
