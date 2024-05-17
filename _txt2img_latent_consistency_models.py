@@ -54,4 +54,4 @@ for seed in SEEDS:
 
         gif_name = f'{ddyymm_hhmmss()}_lcm-t2i_seed{seed:04}_{cleaned_prompt}_{len(GENERATION_STEPS):03}f.gif'
         gif_path = os.path.join(Config.OUTPUT_DIR, gif_name)
-        export_gif(frames, gif_path, FPS)
+        export_gif(frames, FPS, gif_path)
